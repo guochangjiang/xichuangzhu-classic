@@ -26,4 +26,5 @@ module.exports = {
 
 <style lang="less">
 @import "./share.less";
+@import "../node_modules/normalize.css/normalize.css";
 </style>
