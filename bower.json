@@ -1,0 +1,12 @@
+{
+  "name": "xichuangzhu-classic",
+  "version": "0.0.1",
+  "homepage": "https://github.com/xichuangzhu/xichuangzhu-classic",
+  "authors": [
+    "hustlzp <hustlzp@qq.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "fonts.css": "~1.3.1"
+  }
+}
