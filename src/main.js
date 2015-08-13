@@ -10,6 +10,12 @@ router.on('/', function () {
   app.view = "index-view";
 });
 
+router.on('/author/:authorId', function (authorId) {
+  window.scrollTo(0, 0);
+  app.view = "author-view";
+  app.params.authorId = authorId;
+})
+
 router.configure({
   notfound: function () {
     router.setRoute('/');

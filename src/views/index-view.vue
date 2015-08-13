@@ -4,7 +4,7 @@
 
    <div class="author">
        〔<a href="#/dynasty/{{work.dynasty_id}}">{{work.dynasty}}</a>〕
-       <a href="#/author/{{work.hor_id}}">{{work.author}}</a>
+       <a href="#/author/{{work.author_id}}">{{work.author}}</a>
    </div>
 
    <div class="content" v-html="work.content"></div>
