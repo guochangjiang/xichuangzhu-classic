@@ -92,12 +92,13 @@ module.exports = {
         border-right: 1px solid #e4e4e4;
         .font-fang-song();
         color: #333;
-        transition: all .2s ease;
+        transition: all .3s ease;
 
         &:hover {
           background-color: #f6f6f6;
           text-decoration: none;
           color: #428bca;
+          padding-top: 15px;
         }
       }
 
