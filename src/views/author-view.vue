@@ -97,7 +97,7 @@ module.exports = {
         &:hover {
           background-color: #f6f6f6;
           text-decoration: none;
-          color: #428bca;
+          color: #333;
           padding-top: 15px;
         }
       }

@@ -11180,6 +11180,21 @@
 	      authorId: null
 	    }
 	  },
+	  ready: function () {
+	    // See:
+	    // http://stackoverflow.com/questions/2346958/how-to-do-a-horizontal-scroll-on-mouse-wheel-scroll
+	    var mouseWheelEvt = function (event) {
+	      if (document.body.doScroll) {
+	          document.body.doScroll(event.wheelDelta > 0 ? "left" : "right");
+	      } else if ((event.wheelDelta || event.detail) > 0){
+	        document.body.scrollLeft -= 30;
+	      } else {
+	        document.body.scrollLeft += 30;
+	      }
+	      return false;
+	    }
+	    document.body.addEventListener("mousewheel", mouseWheelEvt);
+	  },
 	  components: {
 	    'index-view': __webpack_require__(80),
 	    'author-view': __webpack_require__(95)
@@ -12280,7 +12295,7 @@
 	
 	
 	// module
-	exports.push([module.id, "/*!\n *  Fonts.css -- Cross-platform Chinese fonts solution\n *\n *  Copyright (C) 2013-2014 Zeno Zeng\n *  Released under the MIT license\n *\n *  Github: https://github.com/zenozeng/fonts.css\n */\n.author-view .name {\n  font-size: 36px;\n  line-height: 35px;\n  margin-bottom: 12px;\n  margin-top: -2px;\n  clear: both;\n  font-family: Baskerville, Georgia, \"Liberation Serif\", \"Kaiti SC\", STKaiti, \"AR PL UKai CN\", \"AR PL UKai HK\", \"AR PL UKai TW\", \"AR PL UKai TW MBE\", \"AR PL KaitiM GB\", KaiTi, KaiTi_GB2312, \"TW-Kai\", serif;\n}\n.author-view .dynasty {\n  margin-left: 14px;\n  margin-right: 10px;\n  margin-top: -8px;\n  font-size: 18px;\n  font-family: Baskerville, \"Times New Roman\", \"Liberation Serif\", STFangsong, FangSong, FangSong_GB2312, \"CWTEX-F\", serif;\n}\n.author-view .intro {\n  color: #444;\n  /*max-height: 385px;*/\n  font-weight: lighter;\n  font-family: Georgia, \"Nimbus Roman No9 L\", \"Songti SC\", STSong, \"AR PL SungtiL GB\", NSimSun, SimSun, \"TW-Sung\", \"WenQuanYi Bitmap Song\", \"AR PL UMing CN\", \"AR PL UMing HK\", \"AR PL UMing TW\", \"AR PL UMing TW MBE\", serif;\n  margin-left: 25px;\n}\n.author-view .works {\n  height: 100%;\n}\n.author-view .works .work a {\n  display: block;\n  padding: 0 15px;\n  font-size: 20px;\n  border-right: 1px solid #e4e4e4;\n  font-family: Baskerville, \"Times New Roman\", \"Liberation Serif\", STFangsong, FangSong, FangSong_GB2312, \"CWTEX-F\", serif;\n  color: #333;\n  transition: all .3s ease;\n}\n.author-view .works .work a:hover {\n  background-color: #f6f6f6;\n  text-decoration: none;\n  color: #428bca;\n  padding-top: 15px;\n}\n.author-view .works .work:last-child a {\n  border-left: 1px solid #e4e4e4;\n}\n", ""]);
+	exports.push([module.id, "/*!\n *  Fonts.css -- Cross-platform Chinese fonts solution\n *\n *  Copyright (C) 2013-2014 Zeno Zeng\n *  Released under the MIT license\n *\n *  Github: https://github.com/zenozeng/fonts.css\n */\n.author-view .name {\n  font-size: 36px;\n  line-height: 35px;\n  margin-bottom: 12px;\n  margin-top: -2px;\n  clear: both;\n  font-family: Baskerville, Georgia, \"Liberation Serif\", \"Kaiti SC\", STKaiti, \"AR PL UKai CN\", \"AR PL UKai HK\", \"AR PL UKai TW\", \"AR PL UKai TW MBE\", \"AR PL KaitiM GB\", KaiTi, KaiTi_GB2312, \"TW-Kai\", serif;\n}\n.author-view .dynasty {\n  margin-left: 14px;\n  margin-right: 10px;\n  margin-top: -8px;\n  font-size: 18px;\n  font-family: Baskerville, \"Times New Roman\", \"Liberation Serif\", STFangsong, FangSong, FangSong_GB2312, \"CWTEX-F\", serif;\n}\n.author-view .intro {\n  color: #444;\n  /*max-height: 385px;*/\n  font-weight: lighter;\n  font-family: Georgia, \"Nimbus Roman No9 L\", \"Songti SC\", STSong, \"AR PL SungtiL GB\", NSimSun, SimSun, \"TW-Sung\", \"WenQuanYi Bitmap Song\", \"AR PL UMing CN\", \"AR PL UMing HK\", \"AR PL UMing TW\", \"AR PL UMing TW MBE\", serif;\n  margin-left: 25px;\n}\n.author-view .works {\n  height: 100%;\n}\n.author-view .works .work a {\n  display: block;\n  padding: 0 15px;\n  font-size: 20px;\n  border-right: 1px solid #e4e4e4;\n  font-family: Baskerville, \"Times New Roman\", \"Liberation Serif\", STFangsong, FangSong, FangSong_GB2312, \"CWTEX-F\", serif;\n  color: #333;\n  transition: all .3s ease;\n}\n.author-view .works .work a:hover {\n  background-color: #f6f6f6;\n  text-decoration: none;\n  color: #333;\n  padding-top: 15px;\n}\n.author-view .works .work:last-child a {\n  border-left: 1px solid #e4e4e4;\n}\n", ""]);
 	
 	// exports
 
