@@ -26,7 +26,7 @@ module.exports = {
       'params': {
         'authorId': null
       },
-      'author': null
+      'author': {}
     }
   },
   watch: {
@@ -37,8 +37,11 @@ module.exports = {
   },
   methods: {
     update: function () {
-      this.$http.get('http://localhost:5000/api/get_author/' + this.params.authorId, function (data, status, request) {
+      this.$http.get('http://www.xichuangzhu.com/api/get_author/' + this.params.authorId, function (data, status, request) {
         this.author = data;
+        this.$nextTick(function () {
+          window.scrollTo(10000, 0);
+        });
       }.bind(this));
     }
   }

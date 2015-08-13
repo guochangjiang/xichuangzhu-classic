@@ -50,14 +50,13 @@
 	var router = new Router();
 	
 	Vue.use(__webpack_require__(86));
+	Vue.config.debug = false;
 	
 	router.on('/', function () {
-	  window.scrollTo(0, 0);
 	  app.view = "index-view";
 	});
 	
 	router.on('/author/:authorId', function (authorId) {
-	  window.scrollTo(0, 0);
 	  app.view = "author-view";
 	  app.params.authorId = authorId;
 	})
@@ -11253,22 +11252,28 @@
 	    this.update();
 	  },
 	  ready: function () {
-	    window.addEventListener('keyup', function (e) {
-	      if (e.keyCode === 32) {
-	        this.update();
-	      }
-	    }.bind(this));
+	    window.addEventListener('keyup', this.switch);
+	  },
+	  detached: function () {
+	    window.removeEventListener('keyup', this.switch);
 	  },
 	  methods: {
 	    update: function () {
-	      this.show = false
+	      this.show = false;
 	      setTimeout(function () {
-	        window.scrollTo(2000, 0);
 	        this.$http.get('http://www.xichuangzhu.com/api/get_random_work', function (data, status, request) {
 	          this.work = data;
 	          this.show = true;
+	          this.$nextTick(function () {
+	            window.scrollTo(10000, 0);
+	          });
 	        }.bind(this));
 	      }.bind(this), 300);
+	    },
+	    switch: function (e) {
+	      if (e.keyCode === 32) {
+	        this.update();
+	      }
 	    }
 	  }
 	}
@@ -12205,7 +12210,7 @@
 	      'params': {
 	        'authorId': null
 	      },
-	      'author': null
+	      'author': {}
 	    }
 	  },
 	  watch: {
@@ -12216,8 +12221,11 @@
 	  },
 	  methods: {
 	    update: function () {
-	      this.$http.get('http://localhost:5000/api/get_author/' + this.params.authorId, function (data, status, request) {
+	      this.$http.get('http://www.xichuangzhu.com/api/get_author/' + this.params.authorId, function (data, status, request) {
 	        this.author = data;
+	        this.$nextTick(function () {
+	          window.scrollTo(10000, 0);
+	        });
 	      }.bind(this));
 	    }
 	  }
