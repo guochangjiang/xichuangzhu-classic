@@ -35,6 +35,11 @@ module.exports = {
   compiled: function () {
     this.update();
   },
+  attached: function () {
+    setTimeout(function () {
+      window.scrollTo(10000, 0);
+    }, 100);
+  },
   methods: {
     update: function () {
       this.$http.get('http://www.xichuangzhu.com/api/get_author/' + this.params.authorId, function (data, status, request) {

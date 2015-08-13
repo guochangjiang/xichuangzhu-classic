@@ -33,10 +33,15 @@ module.exports = {
   compiled: function () {
     this.update();
   },
-  ready: function () {
+  attached: function () {
+    this.show = true;
     window.addEventListener('keyup', this.switch);
+    setTimeout(function () {
+      window.scrollTo(10000, 0);
+    }, 100);
   },
   detached: function () {
+    this.show = false;
     window.removeEventListener('keyup', this.switch);
   },
   methods: {
