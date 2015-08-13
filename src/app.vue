@@ -19,7 +19,7 @@ module.exports = {
   },
   components: {
     'index-view': require('./views/index-view.vue'),
-    // 'author-view': require('./views/author-view.vue')
+    'author-view': require('./views/author-view.vue')
   }
 }
 </script>

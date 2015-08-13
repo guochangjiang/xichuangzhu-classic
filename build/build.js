@@ -10869,7 +10869,7 @@
 	exports.i(__webpack_require__(77), "");
 	
 	// module
-	exports.push([module.id, "* {\n  box-sizing: border-box;\n}\n.view {\n  -ms-writing-mode: tb-rl;\n  -webkit-writing-mode: vertical-rl;\n  -moz-writing-mode: vertical-rl;\n  -ms-writing-mode: vertical-rl;\n  writing-mode: vertical-rl;\n  min-width: 100%;\n  max-height: 600px;\n  margin: 60px 0 100px 0;\n  padding: 0 100px;\n  font-size: 14px;\n  line-height: 180%;\n}\na {\n  color: #428bca;\n  text-decoration: none;\n}\na:hover {\n  color: #2a6496;\n  text-decoration: underline;\n}\n.fade-transition {\n  transition: all .3s ease;\n  opacity: 1;\n}\n.fade-enter,\n.fade-leave {\n  opacity: 0;\n}\n", ""]);
+	exports.push([module.id, "* {\n  box-sizing: border-box;\n}\n.view {\n  -ms-writing-mode: tb-rl;\n  -webkit-writing-mode: vertical-rl;\n  -moz-writing-mode: vertical-rl;\n  -ms-writing-mode: vertical-rl;\n  writing-mode: vertical-rl;\n  min-width: 100%;\n  height: 100%;\n  padding: 60px 100px 100px 100px;\n  font-size: 14px;\n  line-height: 180%;\n}\na {\n  color: #428bca;\n  text-decoration: none;\n}\na:hover {\n  color: #2a6496;\n  text-decoration: underline;\n}\n.fade-transition {\n  transition: all .3s ease;\n  opacity: 1;\n}\n.fade-enter,\n.fade-leave {\n  opacity: 0;\n}\n", ""]);
 	
 	// exports
 
@@ -11183,7 +11183,7 @@
 	  },
 	  components: {
 	    'index-view': __webpack_require__(80),
-	    // 'author-view': require('./views/author-view.vue')
+	    'author-view': __webpack_require__(95)
 	  }
 	}
 
@@ -12182,6 +12182,91 @@
 	
 	    return Resource;
 	};
+
+
+/***/ },
+/* 94 */,
+/* 95 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(98)
+	module.exports = __webpack_require__(96)
+	module.exports.template = __webpack_require__(97)
+
+
+/***/ },
+/* 96 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  props: ['params'],
+	  data: function () {
+	    return {
+	      'params': {
+	        'authorId': null
+	      },
+	      'author': null
+	    }
+	  },
+	  watch: {
+	    'params.authorId': 'update'
+	  },
+	  compiled: function () {
+	    this.update();
+	  },
+	  methods: {
+	    update: function () {
+	      this.$http.get('http://localhost:5000/api/get_author/' + this.params.authorId, function (data, status, request) {
+	        this.author = data;
+	      }.bind(this));
+	    }
+	  }
+	}
+
+/***/ },
+/* 97 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"author-view\">\n    <div class=\"name\">{{author.name}}</div>\n\n    <div class=\"dynasty\">\n        〔<a href=\"#/dynasty/{{author.dynasty_id}}\">{{author.dynasty}}</a>〕\n    </div>\n\n    <div class=\"intro\" v-html=\"author.intro\"></div>\n\n    <div class=\"works\">\n      <div class=\"work\" v-repeat=\"work in author.works\">\n        <a class=\"title\" href=\"#/work/{{work.id}}\">\n          {{work.title}}\n        </a>\n      </div>\n    </div>\n  </div>";
+
+/***/ },
+/* 98 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(99);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(78)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/less-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./author-view.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/less-loader/index.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./author-view.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 99 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(76)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "/*!\n *  Fonts.css -- Cross-platform Chinese fonts solution\n *\n *  Copyright (C) 2013-2014 Zeno Zeng\n *  Released under the MIT license\n *\n *  Github: https://github.com/zenozeng/fonts.css\n */\n.author-view .name {\n  font-size: 36px;\n  line-height: 35px;\n  margin-bottom: 12px;\n  margin-top: -2px;\n  clear: both;\n  font-family: Baskerville, Georgia, \"Liberation Serif\", \"Kaiti SC\", STKaiti, \"AR PL UKai CN\", \"AR PL UKai HK\", \"AR PL UKai TW\", \"AR PL UKai TW MBE\", \"AR PL KaitiM GB\", KaiTi, KaiTi_GB2312, \"TW-Kai\", serif;\n}\n.author-view .dynasty {\n  margin-left: 14px;\n  margin-right: 10px;\n  margin-top: -8px;\n  font-size: 18px;\n  font-family: Baskerville, \"Times New Roman\", \"Liberation Serif\", STFangsong, FangSong, FangSong_GB2312, \"CWTEX-F\", serif;\n}\n.author-view .intro {\n  color: #444;\n  /*max-height: 385px;*/\n  font-weight: lighter;\n  font-family: Georgia, \"Nimbus Roman No9 L\", \"Songti SC\", STSong, \"AR PL SungtiL GB\", NSimSun, SimSun, \"TW-Sung\", \"WenQuanYi Bitmap Song\", \"AR PL UMing CN\", \"AR PL UMing HK\", \"AR PL UMing TW\", \"AR PL UMing TW MBE\", serif;\n  margin-left: 25px;\n}\n.author-view .works {\n  height: 100%;\n}\n.author-view .works .work a {\n  display: block;\n  padding: 0 15px;\n  font-size: 20px;\n  border-right: 1px solid #e4e4e4;\n  font-family: Baskerville, \"Times New Roman\", \"Liberation Serif\", STFangsong, FangSong, FangSong_GB2312, \"CWTEX-F\", serif;\n  color: #333;\n  transition: all .2s ease;\n}\n.author-view .works .work a:hover {\n  background-color: #f6f6f6;\n  text-decoration: none;\n  color: #428bca;\n}\n.author-view .works .work:last-child a {\n  border-left: 1px solid #e4e4e4;\n}\n", ""]);
+	
+	// exports
 
 
 /***/ }
