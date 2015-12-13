@@ -15,7 +15,7 @@
    </template>
 
    <div class="logo">
-       <img src="http://www.xichuangzhu.com/static/img/favicon.png" alt="">
+       <img src="http://7o4yuz.com1.z0.glb.clouddn.com/xcz.png" alt="">
    </div>
  </div>
 </template>
