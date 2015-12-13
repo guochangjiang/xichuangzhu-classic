@@ -11301,7 +11301,7 @@
 /* 85 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"index-view\" v-transition=\"fade\" v-show=\"show\">\n    <div class=\"title\">{{work.title}}</div>\n\n   <div class=\"author\">\n       〔<a href=\"#/dynasty/{{work.dynasty_id}}\">{{work.dynasty}}</a>〕\n       <a href=\"#/author/{{work.author_id}}\">{{work.author}}</a>\n   </div>\n\n   <div class=\"content\" v-html=\"work.content\"></div>\n\n   <template v-if=\"work.intro\">\n     <div class=\"divider\"></div>\n     <div class=\"intro\" v-html=\"work.intro\"></div>\n   </template>\n\n   <div class=\"logo\">\n       <img src=\"http://7o4yuz.com1.z0.glb.clouddn.com/xcz.png\" alt=\"\">\n   </div>\n </div>";
+	module.exports = "<div class=\"index-view\" v-transition=\"fade\" v-show=\"show\">\n    <div class=\"title\">{{work.title}}</div>\n\n   <div class=\"author\">\n       〔<a href=\"#\">{{work.dynasty}}</a>〕\n       <a href=\"#\">{{work.author}}</a>\n   </div>\n\n   <div class=\"content\" v-html=\"work.content\"></div>\n\n   <template v-if=\"work.intro\">\n     <div class=\"divider\"></div>\n     <div class=\"intro\" v-html=\"work.intro\"></div>\n   </template>\n\n   <div class=\"logo\">\n       <img src=\"http://7o4yuz.com1.z0.glb.clouddn.com/xcz.png\" alt=\"\">\n   </div>\n </div>";
 
 /***/ },
 /* 86 */
